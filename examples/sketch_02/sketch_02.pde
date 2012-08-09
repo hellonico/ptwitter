@@ -1,25 +1,31 @@
-import net.hellonico.jtwitter.*;
+import net.hellonico.ptwitter.*;
 import net.hellonico.potato.*;
-import winterwell.jtwitter.Twitter.*;
+import winterwell.jtwitter.*;
 
 JTwitterLibrary twitter;
-Twitter jtwitter;
 
 void setup() {
-  size(800,400);
+  size(1024, 800);
   background(0);
   color(0);
-  twitter = new JTwitterLibrary(this);
-  jtwitter = twitter.get();
   
-  twitter.startStream("ありがとう");  
+  // bare minimum
+  twitter = new JTwitterLibrary(this);
+  twitter.startStream("Tokyo");  
 }
 
-boolean processTweer(winterwell.jtwitter.Twitter.ITweet tweet) {
-   println(tweet);
+boolean processTweet(winterwell.jtwitter.Twitter.ITweet tweet) {
+   fill(random(255),random(128),random(255),127+ random(127));
+   text(tweet.getText(), random(width), random(height));
+   // keep looking
    return false; 
 }
 
+void mousePressed() {
+  // clean up the mess
+  background(0);  
+}
+
 void draw() {
-	
+  
 }

@@ -25,7 +25,7 @@
  * @version     ##library.prettyVersion## (##library.version##)
  */
 
-package net.hellonico.jtwitter;
+package net.hellonico.ptwitter;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -142,10 +142,10 @@ public class JTwitterLibrary {
 		public SimpleListener(PApplet parent) {
 			this.parent = parent;
 			try {
-				Method tweetMethod = myParent.getClass().getMethod("processTweer",
+				this.tweetMethod = myParent.getClass().getMethod("processTweet",
 						new Class[] { winterwell.jtwitter.Twitter.ITweet.class });
 			} catch (Exception e) {
-				
+				e.printStackTrace();
 			}
 		}
 		
